@@ -1,0 +1,598 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF4C2FC6263568F200F3C9AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C2FC5263568F200F3C9AB /* AppDelegate.swift */; };
+		BF4C2FC8263568F200F3C9AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C2FC7263568F200F3C9AB /* SceneDelegate.swift */; };
+		BF4C2FCA263568F200F3C9AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C2FC9263568F200F3C9AB /* ViewController.swift */; };
+		BF4C2FCD263568F200F3C9AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4C2FCB263568F200F3C9AB /* Main.storyboard */; };
+		BF4C2FCF263568F600F3C9AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4C2FCE263568F600F3C9AB /* Assets.xcassets */; };
+		BF4C2FD2263568F600F3C9AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4C2FD0263568F600F3C9AB /* LaunchScreen.storyboard */; };
+		BF4C2FDD263568F800F3C9AB /* temochi_butasanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C2FDC263568F800F3C9AB /* temochi_butasanTests.swift */; };
+		BF4C2FE8263568F900F3C9AB /* temochi_butasanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C2FE7263568F900F3C9AB /* temochi_butasanUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF4C2FD9263568F800F3C9AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF4C2FBA263568F100F3C9AB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF4C2FC1263568F200F3C9AB;
+			remoteInfo = "temochi-butasan";
+		};
+		BF4C2FE4263568F900F3C9AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF4C2FBA263568F100F3C9AB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF4C2FC1263568F200F3C9AB;
+			remoteInfo = "temochi-butasan";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BF4C2FC2263568F200F3C9AB /* temochi-butasan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "temochi-butasan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF4C2FC5263568F200F3C9AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF4C2FC7263568F200F3C9AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BF4C2FC9263568F200F3C9AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF4C2FCC263568F200F3C9AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF4C2FCE263568F600F3C9AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF4C2FD1263568F600F3C9AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF4C2FD3263568F600F3C9AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF4C2FD8263568F800F3C9AB /* temochi-butasanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "temochi-butasanTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF4C2FDC263568F800F3C9AB /* temochi_butasanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = temochi_butasanTests.swift; sourceTree = "<group>"; };
+		BF4C2FDE263568F800F3C9AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF4C2FE3263568F900F3C9AB /* temochi-butasanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "temochi-butasanUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF4C2FE7263568F900F3C9AB /* temochi_butasanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = temochi_butasanUITests.swift; sourceTree = "<group>"; };
+		BF4C2FE9263568F900F3C9AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF4C2FBF263568F200F3C9AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF4C2FD5263568F800F3C9AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF4C2FE0263568F900F3C9AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF4C2FB9263568F100F3C9AB = {
+			isa = PBXGroup;
+			children = (
+				BF4C2FC4263568F200F3C9AB /* temochi-butasan */,
+				BF4C2FDB263568F800F3C9AB /* temochi-butasanTests */,
+				BF4C2FE6263568F900F3C9AB /* temochi-butasanUITests */,
+				BF4C2FC3263568F200F3C9AB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF4C2FC3263568F200F3C9AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF4C2FC2263568F200F3C9AB /* temochi-butasan.app */,
+				BF4C2FD8263568F800F3C9AB /* temochi-butasanTests.xctest */,
+				BF4C2FE3263568F900F3C9AB /* temochi-butasanUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF4C2FC4263568F200F3C9AB /* temochi-butasan */ = {
+			isa = PBXGroup;
+			children = (
+				BF4C2FC5263568F200F3C9AB /* AppDelegate.swift */,
+				BF4C2FC7263568F200F3C9AB /* SceneDelegate.swift */,
+				BF4C2FC9263568F200F3C9AB /* ViewController.swift */,
+				BF4C2FCB263568F200F3C9AB /* Main.storyboard */,
+				BF4C2FCE263568F600F3C9AB /* Assets.xcassets */,
+				BF4C2FD0263568F600F3C9AB /* LaunchScreen.storyboard */,
+				BF4C2FD3263568F600F3C9AB /* Info.plist */,
+			);
+			path = "temochi-butasan";
+			sourceTree = "<group>";
+		};
+		BF4C2FDB263568F800F3C9AB /* temochi-butasanTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF4C2FDC263568F800F3C9AB /* temochi_butasanTests.swift */,
+				BF4C2FDE263568F800F3C9AB /* Info.plist */,
+			);
+			path = "temochi-butasanTests";
+			sourceTree = "<group>";
+		};
+		BF4C2FE6263568F900F3C9AB /* temochi-butasanUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BF4C2FE7263568F900F3C9AB /* temochi_butasanUITests.swift */,
+				BF4C2FE9263568F900F3C9AB /* Info.plist */,
+			);
+			path = "temochi-butasanUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF4C2FC1263568F200F3C9AB /* temochi-butasan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF4C2FEC263568F900F3C9AB /* Build configuration list for PBXNativeTarget "temochi-butasan" */;
+			buildPhases = (
+				BF4C2FBE263568F200F3C9AB /* Sources */,
+				BF4C2FBF263568F200F3C9AB /* Frameworks */,
+				BF4C2FC0263568F200F3C9AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "temochi-butasan";
+			productName = "temochi-butasan";
+			productReference = BF4C2FC2263568F200F3C9AB /* temochi-butasan.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF4C2FD7263568F800F3C9AB /* temochi-butasanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF4C2FEF263568F900F3C9AB /* Build configuration list for PBXNativeTarget "temochi-butasanTests" */;
+			buildPhases = (
+				BF4C2FD4263568F800F3C9AB /* Sources */,
+				BF4C2FD5263568F800F3C9AB /* Frameworks */,
+				BF4C2FD6263568F800F3C9AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF4C2FDA263568F800F3C9AB /* PBXTargetDependency */,
+			);
+			name = "temochi-butasanTests";
+			productName = "temochi-butasanTests";
+			productReference = BF4C2FD8263568F800F3C9AB /* temochi-butasanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BF4C2FE2263568F900F3C9AB /* temochi-butasanUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF4C2FF2263568F900F3C9AB /* Build configuration list for PBXNativeTarget "temochi-butasanUITests" */;
+			buildPhases = (
+				BF4C2FDF263568F900F3C9AB /* Sources */,
+				BF4C2FE0263568F900F3C9AB /* Frameworks */,
+				BF4C2FE1263568F900F3C9AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF4C2FE5263568F900F3C9AB /* PBXTargetDependency */,
+			);
+			name = "temochi-butasanUITests";
+			productName = "temochi-butasanUITests";
+			productReference = BF4C2FE3263568F900F3C9AB /* temochi-butasanUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF4C2FBA263568F100F3C9AB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					BF4C2FC1263568F200F3C9AB = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					BF4C2FD7263568F800F3C9AB = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = BF4C2FC1263568F200F3C9AB;
+					};
+					BF4C2FE2263568F900F3C9AB = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = BF4C2FC1263568F200F3C9AB;
+					};
+				};
+			};
+			buildConfigurationList = BF4C2FBD263568F100F3C9AB /* Build configuration list for PBXProject "temochi-butasan" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF4C2FB9263568F100F3C9AB;
+			productRefGroup = BF4C2FC3263568F200F3C9AB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF4C2FC1263568F200F3C9AB /* temochi-butasan */,
+				BF4C2FD7263568F800F3C9AB /* temochi-butasanTests */,
+				BF4C2FE2263568F900F3C9AB /* temochi-butasanUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF4C2FC0263568F200F3C9AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF4C2FD2263568F600F3C9AB /* LaunchScreen.storyboard in Resources */,
+				BF4C2FCF263568F600F3C9AB /* Assets.xcassets in Resources */,
+				BF4C2FCD263568F200F3C9AB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF4C2FD6263568F800F3C9AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF4C2FE1263568F900F3C9AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF4C2FBE263568F200F3C9AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF4C2FCA263568F200F3C9AB /* ViewController.swift in Sources */,
+				BF4C2FC6263568F200F3C9AB /* AppDelegate.swift in Sources */,
+				BF4C2FC8263568F200F3C9AB /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF4C2FD4263568F800F3C9AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF4C2FDD263568F800F3C9AB /* temochi_butasanTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF4C2FDF263568F900F3C9AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF4C2FE8263568F900F3C9AB /* temochi_butasanUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF4C2FDA263568F800F3C9AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF4C2FC1263568F200F3C9AB /* temochi-butasan */;
+			targetProxy = BF4C2FD9263568F800F3C9AB /* PBXContainerItemProxy */;
+		};
+		BF4C2FE5263568F900F3C9AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF4C2FC1263568F200F3C9AB /* temochi-butasan */;
+			targetProxy = BF4C2FE4263568F900F3C9AB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF4C2FCB263568F200F3C9AB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF4C2FCC263568F200F3C9AB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BF4C2FD0263568F600F3C9AB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF4C2FD1263568F600F3C9AB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF4C2FEA263568F900F3C9AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BF4C2FEB263568F900F3C9AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF4C2FED263568F900F3C9AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZY6F7Q5L2Y;
+				INFOPLIST_FILE = "temochi-butasan/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "temochi-butasan.temochi-butasan";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF4C2FEE263568F900F3C9AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZY6F7Q5L2Y;
+				INFOPLIST_FILE = "temochi-butasan/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "temochi-butasan.temochi-butasan";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BF4C2FF0263568F900F3C9AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZY6F7Q5L2Y;
+				INFOPLIST_FILE = "temochi-butasanTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "temochi-butasan.temochi-butasanTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/temochi-butasan.app/temochi-butasan";
+			};
+			name = Debug;
+		};
+		BF4C2FF1263568F900F3C9AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZY6F7Q5L2Y;
+				INFOPLIST_FILE = "temochi-butasanTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "temochi-butasan.temochi-butasanTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/temochi-butasan.app/temochi-butasan";
+			};
+			name = Release;
+		};
+		BF4C2FF3263568F900F3C9AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZY6F7Q5L2Y;
+				INFOPLIST_FILE = "temochi-butasanUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "temochi-butasan.temochi-butasanUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "temochi-butasan";
+			};
+			name = Debug;
+		};
+		BF4C2FF4263568F900F3C9AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZY6F7Q5L2Y;
+				INFOPLIST_FILE = "temochi-butasanUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "temochi-butasan.temochi-butasanUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "temochi-butasan";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF4C2FBD263568F100F3C9AB /* Build configuration list for PBXProject "temochi-butasan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF4C2FEA263568F900F3C9AB /* Debug */,
+				BF4C2FEB263568F900F3C9AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF4C2FEC263568F900F3C9AB /* Build configuration list for PBXNativeTarget "temochi-butasan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF4C2FED263568F900F3C9AB /* Debug */,
+				BF4C2FEE263568F900F3C9AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF4C2FEF263568F900F3C9AB /* Build configuration list for PBXNativeTarget "temochi-butasanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF4C2FF0263568F900F3C9AB /* Debug */,
+				BF4C2FF1263568F900F3C9AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF4C2FF2263568F900F3C9AB /* Build configuration list for PBXNativeTarget "temochi-butasanUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF4C2FF3263568F900F3C9AB /* Debug */,
+				BF4C2FF4263568F900F3C9AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF4C2FBA263568F100F3C9AB /* Project object */;
+}
