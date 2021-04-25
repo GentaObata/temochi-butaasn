@@ -15,6 +15,10 @@ class GameScene: SKScene {
     private var pigNode: SKSpriteNode!
     
     private var isPigTouching = false
+    
+    let lightFBGenerator = UIImpactFeedbackGenerator(style: .light)
+    let mediumFBGenerator = UIImpactFeedbackGenerator(style: .medium)
+    let heavyFBGenerator = UIImpactFeedbackGenerator(style: .heavy)
    
     override func didMove(to view: SKView) {
 //        // 青い四角形を作る.
@@ -28,6 +32,8 @@ class GameScene: SKScene {
 //        rect.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
 //        self.addChild(rect)
         
+        self.lightFBGenerator.prepare()
+        
         self.pigNode = SKSpriteNode(imageNamed: "pig")
         self.pigNode.name = "pig"
         let resizeWidth = self.size.width / 3
@@ -39,6 +45,7 @@ class GameScene: SKScene {
     
     
     func touchDown(atPoint pos : CGPoint) {
+        self.lightFBGenerator.impactOccurred()
     }
         
     func touchMoved(toPoint pos : CGPoint) {
@@ -55,6 +62,8 @@ class GameScene: SKScene {
             let tochedNode = self.atPoint(t.location(in: self))
             if tochedNode.name == self.pigNode.name {
                 self.isPigTouching = true
+                generator.prepare()
+                generator.impactOccurred()
             }
         }
     }
