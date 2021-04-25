@@ -10,8 +10,9 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
+    private var label: SKLabelNode?
+    private var spinnyNode: SKShapeNode?
+    private var pigNode: SKSpriteNode!
    
     override func didMove(to view: SKView) {
 
@@ -34,6 +35,13 @@ class GameScene: SKScene {
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
         }
+        
+        self.pigNode = SKSpriteNode(imageNamed: "pig")
+        let resizeWidth = self.size.width / 3
+        let resizeHeight = self.pigNode.size.height * resizeWidth / self.pigNode.size.width
+        self.pigNode.size = CGSize(width: resizeWidth, height: resizeHeight)
+        self.pigNode.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
+        self.addChild(pigNode)
     }
     
     
