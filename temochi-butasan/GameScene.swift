@@ -32,7 +32,7 @@ class GameScene: SKScene {
 //        rect.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
 //        self.addChild(rect)
         
-        self.lightFBGenerator.prepare()
+        lightFBGenerator.prepare()
         
         self.pigNode = SKSpriteNode(imageNamed: "pig")
         self.pigNode.name = "pig"
@@ -62,8 +62,7 @@ class GameScene: SKScene {
             let tochedNode = self.atPoint(t.location(in: self))
             if tochedNode.name == self.pigNode.name {
                 self.isPigTouching = true
-                generator.prepare()
-                generator.impactOccurred()
+                lightFBGenerator.impactOccurred()
             }
         }
     }
