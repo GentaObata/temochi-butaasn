@@ -17,6 +17,8 @@
 		BF4C2FE8263568F900F3C9AB /* temochi_butasanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C2FE7263568F900F3C9AB /* temochi_butasanUITests.swift */; };
 		BF4D0B3426356FFB00CE63BA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D0B3326356FFB00CE63BA /* GameScene.swift */; };
 		BF4D0B3C2635705400CE63BA /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF4D0B3B2635705400CE63BA /* GameScene.sks */; };
+		BF4D0B442636409C00CE63BA /* Butasan.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D0B432636409C00CE63BA /* Butasan.swift */; };
+		BFDF822E263A8B8100487356 /* SKSpriteNode+accessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDF822D263A8B8100487356 /* SKSpriteNode+accessibilityIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		BF4C2FE9263568F900F3C9AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF4D0B3326356FFB00CE63BA /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		BF4D0B3B2635705400CE63BA /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		BF4D0B432636409C00CE63BA /* Butasan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Butasan.swift; sourceTree = "<group>"; };
+		BFDF822D263A8B8100487356 /* SKSpriteNode+accessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKSpriteNode+accessibilityIdentifier.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +107,12 @@
 		BF4C2FC4263568F200F3C9AB /* temochi-butasan */ = {
 			isa = PBXGroup;
 			children = (
+				BFDF822C263A8AF800487356 /* Extension */,
 				BF4C2FC5263568F200F3C9AB /* AppDelegate.swift */,
 				BF4C2FC7263568F200F3C9AB /* SceneDelegate.swift */,
 				BF4D0B3B2635705400CE63BA /* GameScene.sks */,
 				BF4D0B3326356FFB00CE63BA /* GameScene.swift */,
+				BF4D0B432636409C00CE63BA /* Butasan.swift */,
 				BF4C2FC9263568F200F3C9AB /* GameViewController.swift */,
 				BF4C2FCB263568F200F3C9AB /* Main.storyboard */,
 				BF4C2FCE263568F600F3C9AB /* Assets.xcassets */,
@@ -132,6 +138,14 @@
 				BF4C2FE9263568F900F3C9AB /* Info.plist */,
 			);
 			path = "temochi-butasanUITests";
+			sourceTree = "<group>";
+		};
+		BFDF822C263A8AF800487356 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BFDF822D263A8B8100487356 /* SKSpriteNode+accessibilityIdentifier.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +279,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFDF822E263A8B8100487356 /* SKSpriteNode+accessibilityIdentifier.swift in Sources */,
+				BF4D0B442636409C00CE63BA /* Butasan.swift in Sources */,
 				BF4C2FCA263568F200F3C9AB /* GameViewController.swift in Sources */,
 				BF4C2FC6263568F200F3C9AB /* AppDelegate.swift in Sources */,
 				BF4D0B3426356FFB00CE63BA /* GameScene.swift in Sources */,
@@ -447,6 +463,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZY6F7Q5L2Y;
 				INFOPLIST_FILE = "temochi-butasan/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,6 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZY6F7Q5L2Y;
 				INFOPLIST_FILE = "temochi-butasan/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -22,13 +22,28 @@ class temochi_butasanUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testGameScene() throws {
         let app = XCUIApplication()
+        let window = app.windows.element(boundBy: 0)
         app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let buta = app.otherElements["buta"]
+        
+        // 画面上にブタが存在していること
+        XCTAssert(window.frame.contains(buta.frame))
+        
+        // 豚をスワイプすることで、ブタの位置が変化すること
+        let beforeSwipePosition = buta.frame.origin
+        buta.swipeLeft()
+        let afterSwipePosition = buta.frame.origin
+        XCTAssertNotEqual(beforeSwipePosition.x, afterSwipePosition.x)
+        
+        // 豚をスワイプすることで、ブタの速度が変化し、移動し始めること
+        buta.swipeUp(velocity: XCUIGestureVelocity.slow)
+        sleep(1)
+        let beforeMovePosition = buta.frame.origin
+        sleep(1)
+        let afterMovePosition = buta.frame.origin
+        XCTAssertNotEqual(beforeMovePosition.y, afterMovePosition.y)
     }
 
     func testLaunchPerformance() throws {
