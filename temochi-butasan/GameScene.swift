@@ -33,7 +33,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.size = view.bounds.size
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
-        self.physicsWorld.gravity = CGVector( dx: 0.0, dy: -5.0 )
+        self.physicsWorld.gravity = CGVector( dx: 0.0, dy: 0.0 )
         
         self.area = Area(categoryBitMask: areaMask)
         self.area.position = CGPoint(x: self.frame.midX, y: self.frame.midY)

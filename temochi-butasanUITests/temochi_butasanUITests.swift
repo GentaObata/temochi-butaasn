@@ -31,19 +31,26 @@ class temochi_butasanUITests: XCTestCase {
         // 画面上にブタが存在していること
         XCTAssert(window.frame.contains(buta.frame))
         
-        // 豚をスワイプすることで、ブタの位置が変化すること
+        // ブタをスワイプすることで、ブタの位置が変化すること
         let beforeSwipePosition = buta.frame.origin
         buta.swipeLeft()
         let afterSwipePosition = buta.frame.origin
         XCTAssertNotEqual(beforeSwipePosition.x, afterSwipePosition.x)
         
-        // 豚をスワイプすることで、ブタの速度が変化し、移動し始めること
+        // ブタをスワイプすることで、ブタの速度が変化し、移動し始めること
         buta.swipeUp(velocity: XCUIGestureVelocity.slow)
         sleep(1)
         let beforeMovePosition = buta.frame.origin
         sleep(1)
         let afterMovePosition = buta.frame.origin
         XCTAssertNotEqual(beforeMovePosition.y, afterMovePosition.y)
+        
+        //　ブタをたくさんスワイプしても画面の外にはみ出さないこと
+        for _ in 1...8 {
+            buta.swipeDown(velocity: XCUIGestureVelocity.slow)
+            sleep(1)
+        }
+        XCTAssert(window.frame.contains(buta.frame))
     }
 
     func testLaunchPerformance() throws {
