@@ -10,9 +10,9 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    private var label: SKLabelNode?
-    private var spinnyNode: SKShapeNode?
-    private var pigNode: SKSpriteNode!
+    private var buta: Butasan!
+    private var currentPosition = CGPoint(x: 0, y: 0)
+    private var previoustPosition = CGPoint(x: 0, y: 0)
     
     private var isPigTouching = false
     
@@ -34,35 +34,46 @@ class GameScene: SKScene {
         
         lightFBGenerator.prepare()
         
-        self.pigNode = SKSpriteNode(imageNamed: "pig")
-        self.pigNode.name = "pig"
-        let resizeWidth = self.size.width / 3
-        let resizeHeight = self.pigNode.size.height * resizeWidth / self.pigNode.size.width
-        self.pigNode.size = CGSize(width: resizeWidth, height: resizeHeight)
-        self.pigNode.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
-        self.addChild(pigNode)
+        self.physicsWorld.gravity = CGVector( dx: 0.0, dy: 0.0 )
+        
+        self.buta = Butasan()
+        self.buta.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
+        self.addChild(buta)
     }
     
     
     func touchDown(atPoint pos : CGPoint) {
-        self.lightFBGenerator.impactOccurred()
+        self.currentPosition = pos
+        self.previoustPosition = pos
     }
-        
+    
+    //TODO:適切なメソッドに切り分けて、touchhasMovedに記述する
     func touchMoved(toPoint pos : CGPoint) {
         //TODO: タッチした位置と豚の位置の位置関係を保つようにする
-        pigNode.position = pos
-        
+        buta.position = pos
+        self.currentPosition = buta.position
+        //TODO: CGPointのectensionにする
+        let dx = self.previoustPosition.x - self.currentPosition.x
+        let dy = self.previoustPosition.y - self.currentPosition.y
+        let norm = sqrt(dx*dx + dy*dy)
+        if norm > 50 {
+            self.previoustPosition = buta.position
+        }
     }
     
     func touchUp(atPoint pos : CGPoint) {
+        let dx = self.currentPosition.x - self.previoustPosition.x
+        let dy = self.currentPosition.y - self.previoustPosition.y
+//        self.buta.physicsBody!.velocity = CGVector(dx: dx, dy: dy)
+        self.buta.physicsBody!.velocity = CGVector(dx: 0, dy: 30)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
             let tochedNode = self.atPoint(t.location(in: self))
-            if tochedNode.name == self.pigNode.name {
+            if tochedNode.name == self.buta.name {
                 self.isPigTouching = true
-                lightFBGenerator.impactOccurred()
+                self.touchDown(atPoint: t.location(in: self))
             }
         }
     }
@@ -76,8 +87,12 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-        self.isPigTouching = false
+        for t in touches {
+            if isPigTouching {
+                self.touchUp(atPoint: t.location(in: self))
+                self.isPigTouching = false
+            }
+        }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
