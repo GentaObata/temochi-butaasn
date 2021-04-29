@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BF23D156263AE41200381991 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF23D155263AE41200381991 /* Area.swift */; };
+		BF23D15E263AF7A900381991 /* SettingConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF23D15D263AF7A900381991 /* SettingConst.swift */; };
 		BF4C2FC6263568F200F3C9AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C2FC5263568F200F3C9AB /* AppDelegate.swift */; };
 		BF4C2FC8263568F200F3C9AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C2FC7263568F200F3C9AB /* SceneDelegate.swift */; };
 		BF4C2FCA263568F200F3C9AB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C2FC9263568F200F3C9AB /* GameViewController.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		BF23D155263AE41200381991 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
+		BF23D15D263AF7A900381991 /* SettingConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingConst.swift; sourceTree = "<group>"; };
 		BF4C2FC2263568F200F3C9AB /* temochi-butasan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "temochi-butasan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4C2FC5263568F200F3C9AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF4C2FC7263568F200F3C9AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				BF4C2FC7263568F200F3C9AB /* SceneDelegate.swift */,
 				BF4D0B3B2635705400CE63BA /* GameScene.sks */,
 				BF4D0B3326356FFB00CE63BA /* GameScene.swift */,
+				BF23D15D263AF7A900381991 /* SettingConst.swift */,
 				BF4C2FC9263568F200F3C9AB /* GameViewController.swift */,
 				BF4C2FCB263568F200F3C9AB /* Main.storyboard */,
 				BF4C2FCE263568F600F3C9AB /* Assets.xcassets */,
@@ -292,6 +295,7 @@
 			files = (
 				BFDF822E263A8B8100487356 /* SKSpriteNode+accessibilityIdentifier.swift in Sources */,
 				BF23D156263AE41200381991 /* Area.swift in Sources */,
+				BF23D15E263AF7A900381991 /* SettingConst.swift in Sources */,
 				BF4D0B442636409C00CE63BA /* Butasan.swift in Sources */,
 				BF4C2FCA263568F200F3C9AB /* GameViewController.swift in Sources */,
 				BF4C2FC6263568F200F3C9AB /* AppDelegate.swift in Sources */,

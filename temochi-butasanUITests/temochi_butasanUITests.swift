@@ -31,11 +31,17 @@ class temochi_butasanUITests: XCTestCase {
         // 画面上にブタが存在していること
         XCTAssert(window.frame.contains(buta.frame))
         
+        // ブタ以外をスワイプではブタの位置が変わらないこと
+        let beforeWindowSwipePosition = buta.frame.origin
+        window.swipeRight()
+        let afterWindowSwipePosition = buta.frame.origin
+        XCTAssertEqual(beforeWindowSwipePosition.x, afterWindowSwipePosition.x)
+        
         // ブタをスワイプすることで、ブタの位置が変化すること
-        let beforeSwipePosition = buta.frame.origin
+        let beforeButaSwipePosition = buta.frame.origin
         buta.swipeLeft()
-        let afterSwipePosition = buta.frame.origin
-        XCTAssertNotEqual(beforeSwipePosition.x, afterSwipePosition.x)
+        let afterButaSwipePosition = buta.frame.origin
+        XCTAssertNotEqual(beforeButaSwipePosition.x, afterButaSwipePosition.x)
         
         // ブタをスワイプすることで、ブタの速度が変化し、移動し始めること
         buta.swipeUp(velocity: XCUIGestureVelocity.slow)
@@ -45,12 +51,13 @@ class temochi_butasanUITests: XCTestCase {
         let afterMovePosition = buta.frame.origin
         XCTAssertNotEqual(beforeMovePosition.y, afterMovePosition.y)
         
+        // FIXME: これではテストできていない。掴んだまま画面外に持っていきたい。画面外にテスト用のElementを配置してそこまでドラッグとしてみるか
         //　ブタをたくさんスワイプしても画面の外にはみ出さないこと
-        for _ in 1...8 {
-            buta.swipeDown(velocity: XCUIGestureVelocity.slow)
-            sleep(1)
-        }
-        XCTAssert(window.frame.contains(buta.frame))
+//        for _ in 1...8 {
+//            buta.swipeDown(velocity: XCUIGestureVelocity.slow)
+//            sleep(1)
+//        }
+//        XCTAssert(window.frame.contains(buta.frame))
     }
 
     func testLaunchPerformance() throws {
