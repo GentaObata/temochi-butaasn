@@ -8,9 +8,14 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var buta: Butasan!
+    private var area: Area!
+    
+    private let areaMask: UInt32 = 0x1 << 1
+    private let butaMask: UInt32 = 0x1 << 2
+    
     private var currentPosition = CGPoint(x: 0, y: 0)
     private var previoustPosition = CGPoint(x: 0, y: 0)
     
@@ -21,22 +26,20 @@ class GameScene: SKScene {
     let heavyFBGenerator = UIImpactFeedbackGenerator(style: .heavy)
    
     override func didMove(to view: SKView) {
-//        // 青い四角形を作る.
-//        let rect = SKShapeNode(rectOf: CGSize(width: 200.0, height: 300.0))
-//        // 線の色を青色に指定.
-//        rect.strokeColor = UIColor.blue
-//        // 線の太さを2.0に指定.
-//        rect.lineWidth = 2.0
-//        // 四角形の枠組みの剛体を作る.
-//        rect.physicsBody = SKPhysicsBody(edgeLoopFrom: rect.frame)
-//        rect.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
-//        self.addChild(rect)
-        
         lightFBGenerator.prepare()
+        mediumFBGenerator.prepare()
+        heavyFBGenerator.prepare()
         
-        self.physicsWorld.gravity = CGVector( dx: 0.0, dy: 0.0 )
+        self.physicsWorld.contactDelegate = self
+        self.size = view.bounds.size
+        self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
+        self.physicsWorld.gravity = CGVector( dx: 0.0, dy: -5.0 )
         
-        self.buta = Butasan()
+        self.area = Area(categoryBitMask: areaMask)
+        self.area.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        self.addChild(area)
+        
+        self.buta = Butasan(categoryBitMask: butaMask, contactTestBitMask: areaMask)
         self.buta.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
         self.addChild(buta)
     }
@@ -56,7 +59,7 @@ class GameScene: SKScene {
         let dx = self.previoustPosition.x - self.currentPosition.x
         let dy = self.previoustPosition.y - self.currentPosition.y
         let norm = sqrt(dx*dx + dy*dy)
-        if norm > 50 {
+        if norm > 200 {
             self.previoustPosition = buta.position
         }
     }
@@ -64,8 +67,8 @@ class GameScene: SKScene {
     func touchUp(atPoint pos : CGPoint) {
         let dx = self.currentPosition.x - self.previoustPosition.x
         let dy = self.currentPosition.y - self.previoustPosition.y
-//        self.buta.physicsBody!.velocity = CGVector(dx: dx, dy: dy)
-        self.buta.physicsBody!.velocity = CGVector(dx: 0, dy: 30)
+        self.buta.physicsBody!.velocity = CGVector(dx: dx, dy: dy)
+//        self.buta.physicsBody!.velocity = CGVector(dx: 0, dy: 30)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -103,5 +106,10 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        print("puipui~~")
+        lightFBGenerator.impactOccurred()
     }
 }
