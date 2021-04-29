@@ -36,7 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVector( dx: 0.0, dy: 0.0 )
         
         self.area = Area(categoryBitMask: areaMask)
-        self.area.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        self.area.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
         self.addChild(area)
         
         self.buta = Butasan(categoryBitMask: butaMask, contactTestBitMask: areaMask)
@@ -67,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func touchUp(atPoint pos : CGPoint) {
         let dx = self.currentPosition.x - self.previoustPosition.x
         let dy = self.currentPosition.y - self.previoustPosition.y
-        self.buta.physicsBody!.velocity = CGVector(dx: dx, dy: dy)
+        self.buta.physicsBody!.velocity = CGVector(dx: 3 * dx, dy: 3 * dy)
 //        self.buta.physicsBody!.velocity = CGVector(dx: 0, dy: 30)
     }
     
@@ -109,7 +109,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        print("puipui~~")
-        lightFBGenerator.impactOccurred()
+        if !isPigTouching {
+            lightFBGenerator.impactOccurred()
+        }
     }
 }
