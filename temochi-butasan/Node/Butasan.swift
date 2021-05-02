@@ -37,11 +37,6 @@ class Butasan: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func resetVelocity() {
-        self.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
-        self.physicsBody!.angularVelocity = 0.0
-    }
-    
     func touchDown(atPoint pos : CGPoint) {
         self.previoustPosition = pos
         self.previousTime = Date()
@@ -59,6 +54,15 @@ class Butasan: SKSpriteNode {
     
     func touchUp(atPoint pos : CGPoint) {
         self.beeingTouched = false
+        self.updateVelocit(atPoint: pos)
+    }
+    
+    private func resetVelocity() {
+        self.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
+        self.physicsBody!.angularVelocity = 0.0
+    }
+    
+    private func updateVelocit(atPoint pos : CGPoint) {
         let dx = pos.x - self.previoustPosition.x
         let dy = pos.y - self.previoustPosition.y
         let interval = CGFloat(Date().timeIntervalSince(self.previousTime))
