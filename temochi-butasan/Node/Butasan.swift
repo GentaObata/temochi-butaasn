@@ -9,8 +9,8 @@ import SpriteKit
 
 class Butasan: SKSpriteNode {
     
-    var previoustPosition = CGPoint(x: 0, y: 0)
-    var previousTime = Date()
+    private var previoustPosition = CGPoint(x: 0, y: 0)
+    private var previousTime = Date()
     var beeingTouched = false
 
     init(categoryBitMask: UInt32, contactTestBitMask: UInt32) {

@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class Area: SKShapeNode {
+class PlayArea: SKShapeNode {
     
     let lightFBGenerator = UIImpactFeedbackGenerator(style: .light)
     let mediumFBGenerator = UIImpactFeedbackGenerator(style: .medium)
@@ -32,7 +32,7 @@ class Area: SKShapeNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func collide(with node: SKSpriteNode) {
+    func collide(with node: SKPhysicsContact) {
         // TODO: ぶつかってきたノードの速度によって衝撃を変える
         lightFBGenerator.impactOccurred()
     }
