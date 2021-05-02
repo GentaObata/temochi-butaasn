@@ -8,6 +8,11 @@
 import SpriteKit
 
 class Area: SKShapeNode {
+    
+    let lightFBGenerator = UIImpactFeedbackGenerator(style: .light)
+    let mediumFBGenerator = UIImpactFeedbackGenerator(style: .medium)
+    let heavyFBGenerator = UIImpactFeedbackGenerator(style: .heavy)
+    
     init(categoryBitMask: UInt32) {
         super.init()
         self.path = CGPath(rect: CGRect(origin: CGPoint(x: self.frame.minX, y: self.frame.minY), size: UIScreen.main.bounds.size), transform: nil)
@@ -17,11 +22,18 @@ class Area: SKShapeNode {
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         self.physicsBody!.categoryBitMask = categoryBitMask
         self.physicsBody!.restitution = Settings.restitution
+
+        lightFBGenerator.prepare()
+        mediumFBGenerator.prepare()
+        heavyFBGenerator.prepare()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func
+    func collide(with node: SKSpriteNode) {
+        // TODO: ぶつかってきたノードの速度によって衝撃を変える
+        lightFBGenerator.impactOccurred()
+    }
 }

@@ -15,16 +15,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private let areaMask: UInt32 = 0x1 << 1
     private let butaMask: UInt32 = 0x1 << 2
-    
-    let lightFBGenerator = UIImpactFeedbackGenerator(style: .light)
-    let mediumFBGenerator = UIImpactFeedbackGenerator(style: .medium)
-    let heavyFBGenerator = UIImpactFeedbackGenerator(style: .heavy)
    
     override func didMove(to view: SKView) {
-        lightFBGenerator.prepare()
-        mediumFBGenerator.prepare()
-        heavyFBGenerator.prepare()
-        
         // シーン自体の設定
         self.physicsWorld.contactDelegate = self
         self.size = view.bounds.size
@@ -41,8 +33,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.buta.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
         self.addChild(buta)
     }
-    
-    //FBの発生も壁にぶつかられたメソッドをつくって、それを呼び出す。引数にぶつかってきたnodeを渡す
     
     func touchUp(atPoint pos : CGPoint) {
         let dx = pos.x - self.buta.previoustPosition.x
@@ -89,15 +79,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        if !self.buta.beeingTouched {
-            lightFBGenerator.impactOccurred()
+        if contact.bodyA.categoryBitMask == self.areaMask &&
+            contact.bodyB.categoryBitMask == self.butaMask {
+            self.area.collide(with: self.buta)
         }
     }
 }
-
