@@ -8,6 +8,10 @@
 import SpriteKit
 
 class Butasan: SKSpriteNode {
+    
+    var previoustPosition = CGPoint(x: 0, y: 0)
+    var previousTime = Date()
+    var beeingTouched = false
 
     init(categoryBitMask: UInt32, contactTestBitMask: UInt32) {
         let texture = SKTexture(imageNamed: "pig")
@@ -31,6 +35,34 @@ class Butasan: SKSpriteNode {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func resetVelocity() {
+        self.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
+        self.physicsBody!.angularVelocity = 0.0
+    }
+    
+    func touchDown(atPoint pos : CGPoint) {
+        self.previoustPosition = pos
+        self.previousTime = Date()
+        self.resetVelocity()
+    }
+    
+    func touchMoved(toPoint pos : CGPoint) {
+        self.position = pos
+        let interval = Date().timeIntervalSince(self.previousTime)
+        if interval > 1 {
+            self.previoustPosition = self.position
+            self.previousTime = Date()
+        }
+    }
+    
+    func touchUp(atPoint pos : CGPoint) {
+        self.beeingTouched = false
+        let dx = pos.x - self.previoustPosition.x
+        let dy = pos.y - self.previoustPosition.y
+        let interval = CGFloat(Date().timeIntervalSince(self.previousTime))
+        self.physicsBody!.velocity = CGVector(dx: dx / interval, dy: dy / interval)
     }
 }
 

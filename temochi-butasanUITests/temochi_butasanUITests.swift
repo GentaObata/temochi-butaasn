@@ -50,6 +50,22 @@ class temochi_butasanUITests: XCTestCase {
         sleep(1)
         let afterMovePosition = buta.frame.origin
         XCTAssertNotEqual(beforeMovePosition.y, afterMovePosition.y)
+     
+        // ブタをタップすると速度が0になること
+        buta.swipeDown(velocity: XCUIGestureVelocity.slow)
+        buta.press(forDuration: 1)
+        let beforeTouchPosition = buta.frame.origin
+        sleep(1)
+        let afterTouchPosition = buta.frame.origin
+        XCTAssertEqual(beforeTouchPosition, afterTouchPosition)
+        
+        // ブタをタップすると角速度が0になること
+        buta.swipeDown(velocity: XCUIGestureVelocity.slow)
+        buta.press(forDuration: 1)
+        let beforeTouchHeight = buta.frame.height
+        sleep(1)
+        let afterTouchHeight = buta.frame.height
+        XCTAssertEqual(beforeTouchHeight, afterTouchHeight)
         
         // FIXME: これではテストできていない。掴んだまま画面外に持っていきたい。画面外にテスト用のElementを配置してそこまでドラッグとしてみるか
         //　ブタをたくさんスワイプしても画面の外にはみ出さないこと
