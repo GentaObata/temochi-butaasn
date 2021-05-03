@@ -9,9 +9,9 @@ import SpriteKit
 
 class PlayArea: SKShapeNode {
     
-    let lightFBGenerator = UIImpactFeedbackGenerator(style: .light)
-    let mediumFBGenerator = UIImpactFeedbackGenerator(style: .medium)
-    let heavyFBGenerator = UIImpactFeedbackGenerator(style: .heavy)
+    private let lightFBGenerator = UIImpactFeedbackGenerator(style: .light)
+    private let mediumFBGenerator = UIImpactFeedbackGenerator(style: .medium)
+    private let heavyFBGenerator = UIImpactFeedbackGenerator(style: .heavy)
     
     init(categoryBitMask: UInt32) {
         super.init()

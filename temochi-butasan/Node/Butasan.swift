@@ -11,6 +11,7 @@ class Butasan: SKSpriteNode {
     
     private var previoustPosition = CGPoint(x: 0, y: 0)
     private var previousTime = Date()
+    private let lightFBGenerator = UIImpactFeedbackGenerator(style: .light)
     var beeingTouched = false
 
     init(categoryBitMask: UInt32, contactTestBitMask: UInt32) {
@@ -31,6 +32,8 @@ class Butasan: SKSpriteNode {
         self.physicsBody!.categoryBitMask = categoryBitMask
         self.physicsBody!.contactTestBitMask = contactTestBitMask
         self.physicsBody!.friction = Settings.butaFriction
+        
+        lightFBGenerator.prepare()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,6 +44,7 @@ class Butasan: SKSpriteNode {
         self.previoustPosition = pos
         self.previousTime = Date()
         self.resetVelocity()
+        lightFBGenerator.impactOccurred()
     }
     
     func touchMoved(toPoint pos : CGPoint) {
