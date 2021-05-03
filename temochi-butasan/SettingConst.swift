@@ -9,7 +9,7 @@ import UIKit
 
 struct Settings {
     // 跳ね返り方を指定
-    static let restitution = CGFloat(0.7)
+    static let restitution = CGFloat(0.9)
     
     // 豚のサイズ調整
     static let butaResizeRatio = CGFloat(3.0)

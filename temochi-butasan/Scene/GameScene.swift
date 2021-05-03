@@ -56,6 +56,7 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print(buta.frame.width / 2)
         for t in touches {
             let touchPoint = t.location(in: self)
             let tochedNode = self.atPoint(touchPoint)
@@ -69,8 +70,7 @@ class GameScene: SKScene {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
             if self.buta.beeingTouched {
-                //TODO: ブタがplayAreaを超えないような処理を追加する（一定以上外側に持っていけないようにするとか）
-                self.buta.touchMoved(toPoint: t.location(in: self))
+                self.buta.touchMoved(toPoint: self.notCollisonPoint(atPoint: t.location(in: self), touchingNode: self.buta))
             }
         }
     }
@@ -79,7 +79,7 @@ class GameScene: SKScene {
         for t in touches {
             if self.buta.beeingTouched {
                 self.buta.beeingTouched = false
-                self.buta.touchUp(atPoint: t.location(in: self))
+                self.buta.touchUp(atPoint: self.notCollisonPoint(atPoint: t.location(in: self), touchingNode: self.buta))
             }
         }
     }
@@ -88,13 +88,37 @@ class GameScene: SKScene {
         for t in touches {
             if self.buta.beeingTouched {
                 self.buta.beeingTouched = false
-                self.buta.touchUp(atPoint: t.location(in: self))
+                self.buta.touchUp(atPoint: self.notCollisonPoint(atPoint: t.location(in: self), touchingNode: self.buta))
             }
         }
     }
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+    }
+    
+    //TODO: 角度によっては時までつかない位置で止まってしまうことを解決する
+    private func notCollisonPoint(atPoint pos: CGPoint, touchingNode node: SKSpriteNode) -> CGPoint {
+        var notCollisonPoint = pos
+        
+        let borderLineNotCollisionMinX = self.frame.minX + node.frame.width / 2
+        if pos.x < borderLineNotCollisionMinX {
+            notCollisonPoint.x = borderLineNotCollisionMinX
+        }
+        let borderLineNotCollisionMaxX = self.frame.maxX - node.frame.width / 2
+        if pos.x > borderLineNotCollisionMaxX {
+            notCollisonPoint.x = borderLineNotCollisionMaxX
+        }
+        let borderLineNotCollisionMinY = self.frame.minY + node.frame.height / 2
+        if pos.y < borderLineNotCollisionMinY {
+            notCollisonPoint.y = borderLineNotCollisionMinY
+        }
+        let borderLineNotCollisionMaxY = self.frame.maxY - node.frame.height / 2
+        if pos.y > borderLineNotCollisionMaxY {
+            notCollisonPoint.y = borderLineNotCollisionMaxY
+        }
+        
+        return notCollisonPoint
     }
 }
     
@@ -117,7 +141,7 @@ extension GameScene: SKPhysicsContactDelegate {
                         return
                 }
                 self.previousCollisionTimePlayAreaAndButa = Date()
-                self.playArea.collide(with: contact.bodyB)
+                self.playArea.collide(with: contact)
                 self.stageModel.reducePoint(basedOn: contact)
             }
         }

@@ -22,7 +22,7 @@ class StageModel: NSObject {
         remainingPoint = 1000
     }
     
-    func reducePoint(basedOn vector: CGVector) {
+    func reducePoint(basedOn contact: SKPhysicsContact) {
         //TODO:vectorを元にポイントの減らし具合を変える
         self.remainingPoint -= 1
     }
