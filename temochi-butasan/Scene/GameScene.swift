@@ -13,6 +13,8 @@ class GameScene: SKScene {
     private var playArea: PlayArea!
     private var buta: Butasan!
     private var pointLabel: PointLabel!
+    private var tutorialImage: UIImageView!
+    private var finishView: FinishView!
     
     private var previousCollisionTimePlayAreaAndButa: Date?
     
@@ -27,8 +29,17 @@ class GameScene: SKScene {
         self.size = view.bounds.size
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         self.physicsWorld.gravity = CGVector( dx: 0.0, dy: 0.0 )
-        
         self.stageModel.delegate = self
+        
+        // チュートリアルの表示
+        self.tutorialImage = UIImageView(image: UIImage(named: "tutorialImage"))
+        self.tutorialImage.center = self.view!.center
+        self.tutorialImage.alpha = 0.5
+        self.view?.addSubview(self.tutorialImage)
+        
+        // フィニッシュ画面の配置
+        self.finishView = FinishView()
+        self.finishView.center = self.view!.center
         
         // 周りの枠を配置
         self.playArea = PlayArea(categoryBitMask: playAreaMask)
@@ -49,18 +60,17 @@ class GameScene: SKScene {
     func ajustNodePositionBySafeArea(edgeInsets: UIEdgeInsets) {
         if edgeInsets.top != 0 {
             self.pointLabel.position = CGPoint(
-                x:self.pointLabel.position.x,
-                y:self.pointLabel.position.y - edgeInsets.top + 16
+                x:self.frame.maxX - 16,
+                y:self.frame.maxY - 16 - edgeInsets.top + 16
             )
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print(buta.frame.width / 2)
         for t in touches {
             let touchPoint = t.location(in: self)
             let tochedNode = self.atPoint(touchPoint)
-            if tochedNode.name == self.buta.name {
+            if tochedNode.name == self.buta.name && self.stageModel.isPlaying {
                 self.buta.beeingTouched = true
                 self.buta.touchDown(atPoint: touchPoint)
             }
@@ -97,7 +107,7 @@ class GameScene: SKScene {
         // Called before each frame is rendered
     }
     
-    //TODO: 角度によっては時までつかない位置で止まってしまうことを解決する
+    //TODO: 角度によって端までつかない位置で止まってしまうことを解決する
     private func notCollisonPoint(atPoint pos: CGPoint, touchingNode node: SKSpriteNode) -> CGPoint {
         var notCollisonPoint = pos
         
@@ -140,6 +150,7 @@ extension GameScene: SKPhysicsContactDelegate {
                     Date().timeIntervalSince(self.previousCollisionTimePlayAreaAndButa!) < collisionIntervalSecond {
                         return
                 }
+                self.tutorialImage.isHidden = true
                 self.previousCollisionTimePlayAreaAndButa = Date()
                 self.playArea.collide(with: contact)
                 self.stageModel.reducePoint(basedOn: contact)
@@ -151,5 +162,15 @@ extension GameScene: SKPhysicsContactDelegate {
 extension GameScene: StageModelDelegate {
     func updatedRemainingPoint(newPoint: Int) {
         self.pointLabel.text = String(newPoint)
+    }
+    
+    func startGame() {
+//        self.tutorialImage.isHidden = true
+    }
+    
+    func finishGame() {
+        self.buta.updateVelocityToFinish()
+        self.view?.addSubview(self.finishView)
+        self.finishView.show()
     }
 }

@@ -22,6 +22,8 @@
 		BF4D0B442636409C00CE63BA /* Butasan.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D0B432636409C00CE63BA /* Butasan.swift */; };
 		BFDC8082263EAD550086B444 /* StageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC8081263EAD550086B444 /* StageModel.swift */; };
 		BFDC808A263EB2FD0086B444 /* PointLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC8089263EB2FD0086B444 /* PointLabel.swift */; };
+		BFDC8098264129410086B444 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC8097264129410086B444 /* UIImage+resize.swift */; };
+		BFDC809F264138C00086B444 /* FinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC809E264138C00086B444 /* FinishView.swift */; };
 		BFDF822E263A8B8100487356 /* SKSpriteNode+accessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDF822D263A8B8100487356 /* SKSpriteNode+accessibilityIdentifier.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		BF4D0B432636409C00CE63BA /* Butasan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Butasan.swift; sourceTree = "<group>"; };
 		BFDC8081263EAD550086B444 /* StageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageModel.swift; sourceTree = "<group>"; };
 		BFDC8089263EB2FD0086B444 /* PointLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointLabel.swift; sourceTree = "<group>"; };
+		BFDC8097264129410086B444 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
+		BFDC809E264138C00086B444 /* FinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishView.swift; sourceTree = "<group>"; };
 		BFDF822D263A8B8100487356 /* SKSpriteNode+accessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKSpriteNode+accessibilityIdentifier.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +134,7 @@
 				BF4D0B3B2635705400CE63BA /* GameScene.sks */,
 				BF4C2FC9263568F200F3C9AB /* GameViewController.swift */,
 				BF23D15D263AF7A900381991 /* SettingConst.swift */,
+				BFDC809C264138730086B444 /* View */,
 				BFDC8080263EACBC0086B444 /* Scene */,
 				BFDC807F263EACB30086B444 /* Model */,
 				BF23D154263AE3EC00381991 /* Node */,
@@ -176,10 +181,19 @@
 			path = Scene;
 			sourceTree = "<group>";
 		};
+		BFDC809C264138730086B444 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BFDC809E264138C00086B444 /* FinishView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BFDF822C263A8AF800487356 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				BFDF822D263A8B8100487356 /* SKSpriteNode+accessibilityIdentifier.swift */,
+				BFDC8097264129410086B444 /* UIImage+resize.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -323,8 +337,10 @@
 				BF4C2FC6263568F200F3C9AB /* AppDelegate.swift in Sources */,
 				BF4D0B3426356FFB00CE63BA /* GameScene.swift in Sources */,
 				BFDC808A263EB2FD0086B444 /* PointLabel.swift in Sources */,
+				BFDC8098264129410086B444 /* UIImage+resize.swift in Sources */,
 				BF4C2FC8263568F200F3C9AB /* SceneDelegate.swift in Sources */,
 				BFDC8082263EAD550086B444 /* StageModel.swift in Sources */,
+				BFDC809F264138C00086B444 /* FinishView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,23 +11,41 @@ import SpriteKit
 class StageModel: NSObject {
     
     weak var delegate: StageModelDelegate?
-    
+    private(set) var isPlaying = true {
+        didSet {
+            if isPlaying {
+                self.delegate?.startGame()
+            } else {
+                self.delegate?.finishGame()
+            }
+        }
+    }
+
     private(set) var remainingPoint: Int! {
         didSet {
-            delegate?.updatedRemainingPoint(newPoint: self.remainingPoint)
+            self.delegate?.updatedRemainingPoint(newPoint: self.remainingPoint)
+            if remainingPoint == 0 {
+                self.isPlaying = false
+            }
         }
     }
     
     override init() {
-        remainingPoint = 1000
+        remainingPoint = 1
     }
     
     func reducePoint(basedOn contact: SKPhysicsContact) {
         //TODO:vectorを元にポイントの減らし具合を変える
-        self.remainingPoint -= 1
+        if self.remainingPoint != 0 {
+            self.remainingPoint -= 1
+        }
     }
 }
 
 protocol StageModelDelegate: class {
     func updatedRemainingPoint(newPoint: Int)
+    
+    func startGame()
+    
+    func finishGame()
 }

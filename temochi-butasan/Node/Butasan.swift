@@ -58,7 +58,7 @@ class Butasan: SKSpriteNode {
     
     func touchUp(atPoint pos : CGPoint) {
         self.beeingTouched = false
-        self.updateVelocit(atPoint: pos)
+        self.updateVelocity(atPoint: pos)
     }
     
     private func resetVelocity() {
@@ -66,11 +66,20 @@ class Butasan: SKSpriteNode {
         self.physicsBody!.angularVelocity = 0.0
     }
     
-    private func updateVelocit(atPoint pos : CGPoint) {
+    private func updateVelocity(atPoint pos : CGPoint) {
         let dx = pos.x - self.previoustPosition.x
         let dy = pos.y - self.previoustPosition.y
         let interval = CGFloat(Date().timeIntervalSince(self.previousTime))
         self.physicsBody!.velocity = CGVector(dx: dx / interval, dy: dy / interval)
+    }
+    
+    func updateVelocityToFinish() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            let newVectorX = self.physicsBody!.velocity.dx >= 0 ? 10 : -10
+            let newVectorY = self.physicsBody!.velocity.dy >= 0 ? 10 : -10
+            self.physicsBody!.velocity = CGVector(dx: newVectorX, dy: newVectorY)
+            self.physicsBody!.angularVelocity = CGFloat(self.physicsBody!.angularVelocity / 5)
+        }
     }
 }
 
