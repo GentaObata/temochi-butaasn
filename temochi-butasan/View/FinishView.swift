@@ -9,6 +9,8 @@ import UIKit
 
 class FinishView: UIView {
     
+    let baseSize = UIScreen.main.bounds.size
+    
     private var finishImage: UIImageView!
     private var resultView: UIView!
     private var nextButton: UIButton!
@@ -16,20 +18,13 @@ class FinishView: UIView {
     weak var delegate: FinishViewDelegate?
 
     init() {
-        let baseSize = UIScreen.main.bounds.size
-        
-        self.finishImage = UIImageView(image: UIImage(named: "sokomade")?.resizeImage(width: baseSize.width / 4))
         self.resultView = UIView(frame: CGRect(x: 0, y: 0, width: baseSize.width / 1.2, height: 300))
         self.nextButton = UIButton()
         
         super.init(frame: UIScreen.main.bounds)
         
-        self.addSubview(self.finishImage)
         self.addSubview(self.resultView)
         self.addSubview(self.nextButton)
-        
-        self.finishImage.center = self.center
-        self.finishImage.alpha = 0
         
         self.resultView.center = self.center
         self.resultView.backgroundColor = .red
@@ -54,18 +49,24 @@ class FinishView: UIView {
     }
     
     func show() {
+        let finishImage = UIImageView(image: UIImage(named: "sokomade")?.resizeImage(width: baseSize.width / 4))
+        finishImage.center = self.center
+        finishImage.alpha = 0
+        addSubview(finishImage)
+        self.resultView.isHidden = true
+        self.nextButton.isHidden = true
         UIView.animate(withDuration: 1.0, delay: 0.0 ,usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, animations: {
-            self.finishImage.bounds.size.height += 150
-            self.finishImage.bounds.size.width += 150
-            self.finishImage.alpha = 1
+            finishImage.bounds.size.height += 150
+            finishImage.bounds.size.width += 150
+            finishImage.alpha = 1
         }, completion: { _ in
-            self.ResultShow()
+            self.ResultShow(finishImage: finishImage)
         })
     }
     
-    private func ResultShow() {
+    private func ResultShow(finishImage: UIView) {
         UIView.animate(withDuration: 0.0, delay: 2.0, animations: {
-            self.finishImage.removeFromSuperview()
+            finishImage.removeFromSuperview()
             self.resultView.isHidden = false
             self.nextButton.isHidden = false
         })
