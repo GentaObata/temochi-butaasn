@@ -10,15 +10,43 @@ import UIKit
 class FinishView: UIView {
     
     private var finishImage: UIImageView!
+    private var resultView: UIView!
+    private var nextButton: UIButton!
+    
+    weak var delegate: FinishViewDelegate?
 
     init() {
-        self.finishImage = UIImageView(image: UIImage(named: "sokomade")?.resizeImage(width: UIScreen.main.bounds.size.width / 4))
-        self.finishImage.alpha = 0
+        let baseSize = UIScreen.main.bounds.size
+        
+        self.finishImage = UIImageView(image: UIImage(named: "sokomade")?.resizeImage(width: baseSize.width / 4))
+        self.resultView = UIView(frame: CGRect(x: 0, y: 0, width: baseSize.width / 1.2, height: 300))
+        self.nextButton = UIButton()
         
         super.init(frame: UIScreen.main.bounds)
         
-        self.finishImage.center = self.center
         self.addSubview(self.finishImage)
+        self.addSubview(self.resultView)
+        self.addSubview(self.nextButton)
+        
+        self.finishImage.center = self.center
+        self.finishImage.alpha = 0
+        
+        self.resultView.center = self.center
+        self.resultView.backgroundColor = .red
+        self.resultView.isHidden = true
+        
+        self.nextButton.translatesAutoresizingMaskIntoConstraints = false
+        self.nextButton.backgroundColor = UIColor(named: "primaryColor")
+        self.nextButton.layer.cornerRadius = 32
+        self.nextButton.layer.borderWidth = 0
+        self.nextButton.setTitle("次のステージに進む", for: .normal)
+        self.nextButton.setTitleColor(.white, for: .normal)
+        self.nextButton.addTarget(self, action: #selector(self.handleTappedNextButtton), for: .touchUpInside)
+        self.nextButton.isHidden = true
+        self.nextButton.widthAnchor.constraint(equalTo: self.resultView.widthAnchor).isActive = true
+        self.nextButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
+        self.nextButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -64).isActive = true
+        self.nextButton.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive = true
     }
     
     required init?(coder: NSCoder) {
@@ -31,6 +59,23 @@ class FinishView: UIView {
             self.finishImage.bounds.size.width += 150
             self.finishImage.alpha = 1
         }, completion: { _ in
+            self.ResultShow()
         })
     }
+    
+    private func ResultShow() {
+        UIView.animate(withDuration: 0.0, delay: 2.0, animations: {
+            self.finishImage.removeFromSuperview()
+            self.resultView.isHidden = false
+            self.nextButton.isHidden = false
+        })
+    }
+    
+    @objc private func handleTappedNextButtton() {
+        self.delegate?.didTappdNextButton()
+    }
+}
+
+protocol FinishViewDelegate: class {
+    func didTappdNextButton()
 }

@@ -75,8 +75,9 @@ class Butasan: SKSpriteNode {
     
     func updateVelocityToFinish() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-            let newVectorX = self.physicsBody!.velocity.dx >= 0 ? 10 : -10
-            let newVectorY = self.physicsBody!.velocity.dy >= 0 ? 10 : -10
+            let finishingSpeed = 20
+            let newVectorX = self.physicsBody!.velocity.dx >= 0 ? finishingSpeed : -finishingSpeed
+            let newVectorY = self.physicsBody!.velocity.dy >= 0 ? finishingSpeed : -finishingSpeed
             self.physicsBody!.velocity = CGVector(dx: newVectorX, dy: newVectorY)
             self.physicsBody!.angularVelocity = CGFloat(self.physicsBody!.angularVelocity / 5)
         }

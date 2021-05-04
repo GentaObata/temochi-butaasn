@@ -40,6 +40,7 @@ class GameScene: SKScene {
         // フィニッシュ画面の配置
         self.finishView = FinishView()
         self.finishView.center = self.view!.center
+        self.finishView.delegate = self
         
         // 周りの枠を配置
         self.playArea = PlayArea(categoryBitMask: playAreaMask)
@@ -55,6 +56,9 @@ class GameScene: SKScene {
         self.pointLabel = PointLabel(point: self.stageModel.remainingPoint)
         self.pointLabel.position = CGPoint(x: self.frame.maxX - 16, y: self.frame.maxY  - 16)
         self.addChild(self.pointLabel)
+        
+//        self.view?.addSubview(self.finishView)
+//        self.finishView.show()
     }
     
     func ajustNodePositionBySafeArea(edgeInsets: UIEdgeInsets) {
@@ -165,12 +169,18 @@ extension GameScene: StageModelDelegate {
     }
     
     func startGame() {
-//        self.tutorialImage.isHidden = true
+        self.finishView.removeFromSuperview()
     }
     
     func finishGame() {
         self.buta.updateVelocityToFinish()
         self.view?.addSubview(self.finishView)
         self.finishView.show()
+    }
+}
+
+extension GameScene: FinishViewDelegate {
+    func didTappdNextButton() {
+        self.stageModel.startNextStage()
     }
 }

@@ -10,6 +10,17 @@ import SpriteKit
 
 class StageModel: NSObject {
     
+    private var currentStage: Stage {
+        didSet {
+            if currentStage.remainingPoint != oldValue.remainingPoint {
+                self.delegate?.updatedRemainingPoint(newPoint: self.remainingPoint)
+                if currentStage.remainingPoint == 0 {
+                    self.isPlaying = false
+                }
+            }
+        }
+    }
+    
     weak var delegate: StageModelDelegate?
     private(set) var isPlaying = true {
         didSet {
@@ -21,24 +32,26 @@ class StageModel: NSObject {
         }
     }
 
-    private(set) var remainingPoint: Int! {
-        didSet {
-            self.delegate?.updatedRemainingPoint(newPoint: self.remainingPoint)
-            if remainingPoint == 0 {
-                self.isPlaying = false
-            }
+    var remainingPoint: Int! {
+        get {
+            self.currentStage.remainingPoint
         }
     }
     
     override init() {
-        remainingPoint = 1
+        self.currentStage = Stage()
     }
     
     func reducePoint(basedOn contact: SKPhysicsContact) {
         //TODO:vectorを元にポイントの減らし具合を変える
         if self.remainingPoint != 0 {
-            self.remainingPoint -= 1
+            self.currentStage.remainingPoint -= 1
         }
+    }
+    
+    func startNextStage() {
+        self.currentStage.toNext()
+        self.isPlaying = true
     }
 }
 

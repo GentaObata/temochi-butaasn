@@ -24,6 +24,7 @@
 		BFDC808A263EB2FD0086B444 /* PointLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC8089263EB2FD0086B444 /* PointLabel.swift */; };
 		BFDC8098264129410086B444 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC8097264129410086B444 /* UIImage+resize.swift */; };
 		BFDC809F264138C00086B444 /* FinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC809E264138C00086B444 /* FinishView.swift */; };
+		BFDC80A7264163850086B444 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC80A6264163840086B444 /* Stage.swift */; };
 		BFDF822E263A8B8100487356 /* SKSpriteNode+accessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDF822D263A8B8100487356 /* SKSpriteNode+accessibilityIdentifier.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		BFDC8089263EB2FD0086B444 /* PointLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointLabel.swift; sourceTree = "<group>"; };
 		BFDC8097264129410086B444 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		BFDC809E264138C00086B444 /* FinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishView.swift; sourceTree = "<group>"; };
+		BFDC80A6264163840086B444 /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		BFDF822D263A8B8100487356 /* SKSpriteNode+accessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKSpriteNode+accessibilityIdentifier.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				BFDC8081263EAD550086B444 /* StageModel.swift */,
+				BFDC80A6264163840086B444 /* Stage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				BF4C2FC8263568F200F3C9AB /* SceneDelegate.swift in Sources */,
 				BFDC8082263EAD550086B444 /* StageModel.swift in Sources */,
 				BFDC809F264138C00086B444 /* FinishView.swift in Sources */,
+				BFDC80A7264163850086B444 /* Stage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
