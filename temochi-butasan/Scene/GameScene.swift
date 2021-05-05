@@ -31,13 +31,12 @@ class GameScene: SKScene {
         self.physicsWorld.gravity = CGVector( dx: 0.0, dy: 0.0 )
         self.stageModel.delegate = self
         
-        // チュートリアルの表示
+        // チュートリアルイメージの設定
         self.tutorialImage = UIImageView(image: UIImage(named: "tutorialImage"))
         self.tutorialImage.center = self.view!.center
         self.tutorialImage.alpha = 0.5
-        self.view?.addSubview(self.tutorialImage)
         
-        // フィニッシュ画面の配置
+        // フィニッシュ画面の設定
         self.finishView = FinishView()
         self.finishView.center = self.view!.center
         self.finishView.delegate = self
@@ -59,6 +58,17 @@ class GameScene: SKScene {
         
 //        self.view?.addSubview(self.finishView)
 //        self.finishView.show()
+        
+        // ステージモデルのstatusを取得できるように　それをもとに、初期表示を切り替え
+        switch self.stageModel.status {
+        case .redy:
+            self.view?.addSubview(self.tutorialImage)
+        case .playing:
+            break
+        case .finished:
+            self.view?.addSubview(self.finishView)
+            self.finishView.resultShow()
+        }
     }
     
     func ajustNodePositionBySafeArea(edgeInsets: UIEdgeInsets) {
@@ -154,10 +164,9 @@ extension GameScene: SKPhysicsContactDelegate {
                     Date().timeIntervalSince(self.previousCollisionTimePlayAreaAndButa!) < collisionIntervalSecond {
                         return
                 }
-                self.tutorialImage.isHidden = true
                 self.previousCollisionTimePlayAreaAndButa = Date()
                 self.playArea.collide(with: contact)
-                self.stageModel.reducePoint(basedOn: contact)
+                self.stageModel.handleCollision(contact: contact)
             }
         }
     }
@@ -165,17 +174,23 @@ extension GameScene: SKPhysicsContactDelegate {
 
 extension GameScene: StageModelDelegate {
     func updatedRemainingPoint(newPoint: Int) {
+        print(newPoint)
         self.pointLabel.text = String(newPoint)
     }
     
-    func startGame() {
+    func redyToGame() {
+        self.view?.addSubview(self.tutorialImage)
         self.finishView.removeFromSuperview()
+    }
+    
+    func startPlayGame() {
+        self.tutorialImage.removeFromSuperview()
     }
     
     func finishGame() {
         self.buta.updateVelocityToFinish()
         self.view?.addSubview(self.finishView)
-        self.finishView.show()
+        self.finishView.finishShow()
     }
 }
 

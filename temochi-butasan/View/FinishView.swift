@@ -28,7 +28,6 @@ class FinishView: UIView {
         
         self.resultView.center = self.center
         self.resultView.backgroundColor = .red
-        self.resultView.isHidden = true
         
         self.nextButton.translatesAutoresizingMaskIntoConstraints = false
         self.nextButton.backgroundColor = UIColor(named: "primaryColor")
@@ -37,7 +36,6 @@ class FinishView: UIView {
         self.nextButton.setTitle("次のステージに進む", for: .normal)
         self.nextButton.setTitleColor(.white, for: .normal)
         self.nextButton.addTarget(self, action: #selector(self.handleTappedNextButtton), for: .touchUpInside)
-        self.nextButton.isHidden = true
         self.nextButton.widthAnchor.constraint(equalTo: self.resultView.widthAnchor).isActive = true
         self.nextButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
         self.nextButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -64).isActive = true
@@ -48,7 +46,9 @@ class FinishView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func show() {
+    
+    // stage構造体を引数で受け取って、内容を色々表示する
+    func finishShow() {
         let finishImage = UIImageView(image: UIImage(named: "sokomade")?.resizeImage(width: baseSize.width / 4))
         finishImage.center = self.center
         finishImage.alpha = 0
@@ -60,16 +60,16 @@ class FinishView: UIView {
             finishImage.bounds.size.width += 150
             finishImage.alpha = 1
         }, completion: { _ in
-            self.ResultShow(finishImage: finishImage)
+            UIView.animate(withDuration: 0.0, delay: 2.0, animations: {
+                finishImage.removeFromSuperview()
+                self.resultShow()
+            })
         })
     }
     
-    private func ResultShow(finishImage: UIView) {
-        UIView.animate(withDuration: 0.0, delay: 2.0, animations: {
-            finishImage.removeFromSuperview()
-            self.resultView.isHidden = false
-            self.nextButton.isHidden = false
-        })
+    func resultShow() {
+        self.resultView.isHidden = false
+        self.nextButton.isHidden = false
     }
     
     @objc private func handleTappedNextButtton() {

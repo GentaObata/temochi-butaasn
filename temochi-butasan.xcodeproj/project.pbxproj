@@ -25,6 +25,7 @@
 		BFDC8098264129410086B444 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC8097264129410086B444 /* UIImage+resize.swift */; };
 		BFDC809F264138C00086B444 /* FinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC809E264138C00086B444 /* FinishView.swift */; };
 		BFDC80A7264163850086B444 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC80A6264163840086B444 /* Stage.swift */; };
+		BFDC80AE2641986B0086B444 /* StageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC80AD2641986A0086B444 /* StageRepository.swift */; };
 		BFDF822E263A8B8100487356 /* SKSpriteNode+accessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDF822D263A8B8100487356 /* SKSpriteNode+accessibilityIdentifier.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		BFDC8097264129410086B444 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		BFDC809E264138C00086B444 /* FinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishView.swift; sourceTree = "<group>"; };
 		BFDC80A6264163840086B444 /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
+		BFDC80AD2641986A0086B444 /* StageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageRepository.swift; sourceTree = "<group>"; };
 		BFDF822D263A8B8100487356 /* SKSpriteNode+accessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKSpriteNode+accessibilityIdentifier.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +141,7 @@
 				BFDC809C264138730086B444 /* View */,
 				BFDC8080263EACBC0086B444 /* Scene */,
 				BFDC807F263EACB30086B444 /* Model */,
+				BFDC80AB264197BE0086B444 /* Repository */,
 				BF23D154263AE3EC00381991 /* Node */,
 				BFDF822C263A8AF800487356 /* Extension */,
 				BF4C2FD0263568F600F3C9AB /* LaunchScreen.storyboard */,
@@ -171,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				BFDC8081263EAD550086B444 /* StageModel.swift */,
-				BFDC80A6264163840086B444 /* Stage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,6 +192,15 @@
 				BFDC809E264138C00086B444 /* FinishView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BFDC80AB264197BE0086B444 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				BFDC80AD2641986A0086B444 /* StageRepository.swift */,
+				BFDC80A6264163840086B444 /* Stage.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		BFDF822C263A8AF800487356 /* Extension */ = {
@@ -342,6 +353,7 @@
 				BFDC808A263EB2FD0086B444 /* PointLabel.swift in Sources */,
 				BFDC8098264129410086B444 /* UIImage+resize.swift in Sources */,
 				BF4C2FC8263568F200F3C9AB /* SceneDelegate.swift in Sources */,
+				BFDC80AE2641986B0086B444 /* StageRepository.swift in Sources */,
 				BFDC8082263EAD550086B444 /* StageModel.swift in Sources */,
 				BFDC809F264138C00086B444 /* FinishView.swift in Sources */,
 				BFDC80A7264163850086B444 /* Stage.swift in Sources */,
