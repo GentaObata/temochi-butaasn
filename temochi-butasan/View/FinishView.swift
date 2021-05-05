@@ -46,7 +46,7 @@ class FinishView: UIView {
     }
     
     func finishShow(finishStage: Stage) {
-        let finishImage = UIImageView(image: UIImage(named: "sokomade")?.resizeImage(width: baseSize.width / 4))
+        let finishImage = UIImageView(image: UIImage(named: "finish")?.resizeImage(width: baseSize.width / 4))
         finishImage.center = self.center
         finishImage.alpha = 0
         addSubview(finishImage)

@@ -80,7 +80,7 @@ class StageModel: NSObject {
     
     private func calculateTargetPoint(_ i: Int) -> Int {
         #if DEBUG
-            return 2
+            return 20
         #endif
         var point = 0
         switch i {

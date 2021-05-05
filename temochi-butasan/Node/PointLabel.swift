@@ -14,7 +14,7 @@ class PointLabel: SKLabelNode {
         self.text = String(point)
         self.fontName = "GeezaPro-Bold"
         self.fontSize = 60
-        self.fontColor = .gray
+        self.fontColor = UIColor(named: "grayFontColor")
         self.horizontalAlignmentMode = .right
         self.verticalAlignmentMode = .top
     }

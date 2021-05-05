@@ -32,8 +32,18 @@ class PlayArea: SKShapeNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func collide(with node: SKPhysicsContact) {
+    func collide(with contact: SKPhysicsContact) {
         // TODO: ぶつかってきたノードの速度によって衝撃を変える
-        lightFBGenerator.impactOccurred()
+        print(contact.collisionImpulse)
+        switch contact.collisionImpulse {
+        case 0..<100:
+            lightFBGenerator.impactOccurred()
+        case 100..<500:
+            mediumFBGenerator.impactOccurred()
+        case 500...:
+            heavyFBGenerator.impactOccurred()
+        default:
+            lightFBGenerator.impactOccurred()
+        }
     }
 }

@@ -32,8 +32,13 @@ class GameScene: SKScene {
         self.backgroundColor = UIColor(named: "backgroundColor") ?? .white
         self.stageModel.delegate = self
         
+        // 背景画像を設定
+        let background = SKSpriteNode(imageNamed: "background")
+        background.zPosition = -1
+        self.addChild(background)
+        
         // チュートリアルイメージの設定
-        self.tutorialImage = UIImageView(image: UIImage(named: "tutorialImage"))
+        self.tutorialImage = UIImageView(image: UIImage(named: "tutorial")?.resizeImage(width: 250))
         self.tutorialImage.center = self.view!.center
         self.tutorialImage.alpha = 0.5
         
