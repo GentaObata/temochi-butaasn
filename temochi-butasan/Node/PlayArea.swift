@@ -33,8 +33,6 @@ class PlayArea: SKShapeNode {
     }
     
     func collide(with contact: SKPhysicsContact) {
-        // TODO: ぶつかってきたノードの速度によって衝撃を変える
-        print(contact.collisionImpulse)
         switch contact.collisionImpulse {
         case 0..<100:
             lightFBGenerator.impactOccurred()

@@ -43,7 +43,7 @@ class StageModel: NSObject {
     override init() {
         super.init()
         // ステージをリセットしたい時にコメントイン
-//        StageRepository.shared.deleteStage()
+        StageRepository.shared.deleteStage()
     }
     
     func handleCollision(contact: SKPhysicsContact) {
@@ -79,9 +79,6 @@ class StageModel: NSObject {
     }
     
     private func calculateTargetPoint(_ i: Int) -> Int {
-        #if DEBUG
-            return 20
-        #endif
         var point = 0
         switch i {
         case 1:
@@ -93,7 +90,11 @@ class StageModel: NSObject {
         default:
             point = 10
         }
-        return point
+        #if DEBUG
+            return 10
+        #else
+            return point
+        #endif
     }
 }
 
