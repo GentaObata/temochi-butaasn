@@ -29,6 +29,7 @@ class GameScene: SKScene {
         self.size = view.bounds.size
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         self.physicsWorld.gravity = CGVector( dx: 0.0, dy: 0.0 )
+        self.backgroundColor = UIColor(named: "backgroundColor") ?? .white
         self.stageModel.delegate = self
         
         // チュートリアルイメージの設定
@@ -52,22 +53,21 @@ class GameScene: SKScene {
         self.addChild(self.buta)
         
         // ポイントラベルを配置
-        self.pointLabel = PointLabel(point: self.stageModel.remainingPoint)
+        self.pointLabel = PointLabel(point: self.stageModel.currentStage.remainingPoint)
         self.pointLabel.position = CGPoint(x: self.frame.maxX - 16, y: self.frame.maxY  - 16)
         self.addChild(self.pointLabel)
         
 //        self.view?.addSubview(self.finishView)
 //        self.finishView.show()
         
-        // ステージモデルのstatusを取得できるように　それをもとに、初期表示を切り替え
-        switch self.stageModel.status {
+        switch self.stageModel.currentStage.status {
         case .redy:
             self.view?.addSubview(self.tutorialImage)
         case .playing:
             break
         case .finished:
             self.view?.addSubview(self.finishView)
-            self.finishView.resultShow()
+            self.finishView.resultShow(finishStage: self.stageModel.currentStage)
         }
     }
     
@@ -174,7 +174,6 @@ extension GameScene: SKPhysicsContactDelegate {
 
 extension GameScene: StageModelDelegate {
     func updatedRemainingPoint(newPoint: Int) {
-        print(newPoint)
         self.pointLabel.text = String(newPoint)
     }
     
@@ -190,7 +189,7 @@ extension GameScene: StageModelDelegate {
     func finishGame() {
         self.buta.updateVelocityToFinish()
         self.view?.addSubview(self.finishView)
-        self.finishView.finishShow()
+        self.finishView.finishShow(finishStage: self.stageModel.currentStage)
     }
 }
 

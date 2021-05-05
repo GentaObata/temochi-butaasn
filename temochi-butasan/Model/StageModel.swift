@@ -10,7 +10,7 @@ import SpriteKit
 
 class StageModel: NSObject {
     
-    private var currentStage: Stage {
+    private(set) var currentStage: Stage {
         set(newValue) {
             let oldValue = currentStage
             StageRepository.shared.setStage(newValue)
@@ -40,16 +40,6 @@ class StageModel: NSObject {
         }
     }
     
-    var status: StageStatus {
-        return self.currentStage.status
-    }
-
-    var remainingPoint: Int! {
-        get {
-            self.currentStage.remainingPoint
-        }
-    }
-    
     override init() {
         super.init()
         // ステージをリセットしたい時にコメントイン
@@ -74,23 +64,24 @@ class StageModel: NSObject {
     }
     
     func startNextStage() {
-        print(currentStage)
         self.currentStage.stageNumber += 1
         self.currentStage.targetCount = self.calculateTargetPoint(self.currentStage.stageNumber)
         self.currentStage.remainingPoint = self.currentStage.targetCount
         self.currentStage.status = .redy
-        print(currentStage)
         self.delegate?.updatedRemainingPoint(newPoint: currentStage.remainingPoint)
     }
     
     //TODO:vectorを元にポイントの減らし具合を変える
     private func reducePoint(basedOn contact: SKPhysicsContact) {
-        if self.remainingPoint != 0 {
+        if self.currentStage.remainingPoint != 0 {
             self.currentStage.remainingPoint -= 1
         }
     }
     
     private func calculateTargetPoint(_ i: Int) -> Int {
+        #if DEBUG
+            return 2
+        #endif
         var point = 0
         switch i {
         case 1:
@@ -103,7 +94,6 @@ class StageModel: NSObject {
             point = 10
         }
         return point
-//        return 2
     }
 }
 

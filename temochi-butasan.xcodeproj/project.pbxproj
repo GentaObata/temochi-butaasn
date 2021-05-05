@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF05D1ED26425D3300175DE3 /* ResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF05D1EC26425D3300175DE3 /* ResultView.xib */; };
+		BF05D1F226425D7600175DE3 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05D1F126425D7600175DE3 /* ResultView.swift */; };
 		BF23D156263AE41200381991 /* PlayArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF23D155263AE41200381991 /* PlayArea.swift */; };
 		BF23D15E263AF7A900381991 /* SettingConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF23D15D263AF7A900381991 /* SettingConst.swift */; };
 		BF4C2FC6263568F200F3C9AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C2FC5263568F200F3C9AB /* AppDelegate.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF05D1EC26425D3300175DE3 /* ResultView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultView.xib; sourceTree = "<group>"; };
+		BF05D1F126425D7600175DE3 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		BF23D155263AE41200381991 /* PlayArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayArea.swift; sourceTree = "<group>"; };
 		BF23D15D263AF7A900381991 /* SettingConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingConst.swift; sourceTree = "<group>"; };
 		BF4C2FC2263568F200F3C9AB /* temochi-butasan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "temochi-butasan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				BFDC809E264138C00086B444 /* FinishView.swift */,
+				BF05D1EC26425D3300175DE3 /* ResultView.xib */,
+				BF05D1F126425D7600175DE3 /* ResultView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF05D1ED26425D3300175DE3 /* ResultView.xib in Resources */,
 				BF4D0B3C2635705400CE63BA /* GameScene.sks in Resources */,
 				BF4C2FD2263568F600F3C9AB /* LaunchScreen.storyboard in Resources */,
 				BF4C2FCF263568F600F3C9AB /* Assets.xcassets in Resources */,
@@ -345,6 +352,7 @@
 			files = (
 				BFDF822E263A8B8100487356 /* SKSpriteNode+accessibilityIdentifier.swift in Sources */,
 				BF23D156263AE41200381991 /* PlayArea.swift in Sources */,
+				BF05D1F226425D7600175DE3 /* ResultView.swift in Sources */,
 				BF23D15E263AF7A900381991 /* SettingConst.swift in Sources */,
 				BF4D0B442636409C00CE63BA /* Butasan.swift in Sources */,
 				BF4C2FCA263568F200F3C9AB /* GameViewController.swift in Sources */,
