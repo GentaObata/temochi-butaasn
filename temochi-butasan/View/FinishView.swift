@@ -32,6 +32,7 @@ class FinishView: UIView {
         self.nextButton.layer.cornerRadius = 32
         self.nextButton.layer.borderWidth = 0
         self.nextButton.setTitle("次のステージに進む", for: .normal)
+        self.nextButton.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .black)
         self.nextButton.setTitleColor(.white, for: .normal)
         self.nextButton.addTarget(self, action: #selector(self.handleTappedNextButtton), for: .touchUpInside)
         self.nextButton.translatesAutoresizingMaskIntoConstraints = false
